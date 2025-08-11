@@ -41,6 +41,10 @@ public class CaesarCipher {
         }
         return result.toString();
     }
+    public static String decrypt (String text, int shift){
+        //shift becomes negative
+        return encrypt (text, 26 - (shift % 26));
+    }
     public static void main (String [] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter text to encrypt: ");
@@ -51,5 +55,8 @@ public class CaesarCipher {
 
         String encrypted = encrypt(inputText, shiftKey);
         System.out.println("Encrypted text: " + encrypted);
+
+        String decrypted = decrypt(encrypted, shiftKey);
+        System.out.println("Decrypted text: " + decrypted);
     }
 }
